@@ -6,11 +6,12 @@ import RegisterPage from "./Pages/RegisterPage";
 import Header from "./Pages/Header";
 
 function App() {
+
   return (
     <div className="App">
         <header><Header/></header>
         <Routes>
-            <Route path={"/register"} element={<RegisterPage/>}/>
+            <Route path={"/register"} element={<RegisterPage course={""} id={""} img={""} name={""} password={""}/>}/>
             <Route path={"/"} element={<HomePage/>}/>
         </Routes>
     </div>
