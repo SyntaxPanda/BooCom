@@ -1,22 +1,21 @@
 import React from 'react';
 import {Route, Routes, useNavigate} from "react-router-dom";
-import RegisterPage from "./RegisterPage";
 
 export default function HomePage() {
     const navigate = useNavigate();
 
-    function onClickHandler(){
+    function onClickHandler() {
         navigate("/register");
     }
 
     return (
         <div>
             <header>
-                <button onClick={onClickHandler}>Register</button>
-                <Routes>
-                    <Route path={"/register"} element={<RegisterPage/>}/>
-                </Routes>
+                <div className={"registerButton"}>
+                    <button onClick={onClickHandler}>Register</button>
+                </div>
             </header>
+            Hi im the HomePage
         </div>
     );
 }
