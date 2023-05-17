@@ -1,5 +1,6 @@
 import React from 'react';
 import {Route, Routes, useNavigate} from "react-router-dom";
+import "../Css/HomePageCSS/HomePageCSS.css"
 
 export default function HomePage() {
     const navigate = useNavigate();
@@ -10,8 +11,8 @@ export default function HomePage() {
 
     return (
         <div>
-            <header>
-                <div className={"registerButton"}>
+            <header className={"registerButton"}>
+                <div>
                     <button onClick={onClickHandler}>Register</button>
                 </div>
             </header>
