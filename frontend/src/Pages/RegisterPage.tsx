@@ -59,6 +59,7 @@ export default function RegisterPage(props: User) {
                     <select name={"course"} onChange={OnChangeHandlerUserCourse}>
                         <option >plz select course</option>
                         <option value={"BOJAVA231"}>Bo-java-23-1</option>
+                        <option value={"COACH"}>Coach</option>
                     </select>
                 </div>
                 <div>
