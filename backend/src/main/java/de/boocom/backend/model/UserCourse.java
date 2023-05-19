@@ -2,5 +2,6 @@ package de.boocom.backend.model;
 
 public enum UserCourse {
 
-    BOJAVA231
+    BOJAVA231,
+    COACH
 }
