@@ -5,6 +5,6 @@ public class User {
     private String name;
     private String password;
     private String id;
-    private Enum course;
+    private UserCourse course;
     private String img;
 }
