@@ -1,27 +1,32 @@
 import React, {ChangeEvent, FormEvent, useState} from 'react';
 import axios from "axios";
 import {User} from "../Types/UserType";
+import {SelectChangeEvent} from "@mui/material";
 
 export default function RegisterPage(props: User) {
     const [name, setName] =
         useState<string>("")
     const [password, setPassword] =
         useState<string>("")
-
+    const[course, setCourse] = useState("")
 
     const [userList, setUserList] =
         useState<User[]>([])
 
+
     function addUser(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
-        axios.post("/api/register/addUser", {
+        console.log(course)
+        axios.post("/api/register/user", {
             name: name,
             password: password,
-            course: "bo-java-23-1"
+            course: course
         })
             .then(response => setUserList(response.data))
+
         setName("")
         setPassword("")
+
     }
 
     function OnChangeHandlerUserName(event: ChangeEvent<HTMLInputElement>) {
@@ -31,6 +36,14 @@ export default function RegisterPage(props: User) {
     function OnChangeHandlerUserPassword(event: ChangeEvent<HTMLInputElement>) {
         setPassword(event.target.value)
     }
+
+    function OnChangeHandlerUserCourse(event: ChangeEvent<HTMLSelectElement>) {
+        setCourse(event.target.value)
+        console.log(event)
+        console.log(course)
+    }
+
+
 
     return (
         <div>
@@ -43,8 +56,9 @@ export default function RegisterPage(props: User) {
                            onChange={OnChangeHandlerUserPassword}/>
                 </div>
                 <div>
-                    <select>
-                        <option value="bo-java-23-1">Bo-java-23-1</option>
+                    <select name={"course"} onChange={OnChangeHandlerUserCourse}>
+                        <option >plz select course</option>
+                        <option value={"BOJAVA231"}>Bo-java-23-1</option>
                     </select>
                 </div>
                 <div>

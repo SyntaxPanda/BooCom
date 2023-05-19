@@ -1,4 +1,4 @@
-package de.boocom.backend.Service;
+package de.boocom.backend.service;
 
 import org.springframework.stereotype.Service;
 

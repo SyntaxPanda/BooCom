@@ -1,4 +1,4 @@
-package de.boocom.backend.Model;
+package de.boocom.backend.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
