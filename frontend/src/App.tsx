@@ -7,8 +7,6 @@ import Header from  './Pages/Header';
 import UserPage from "./Pages/UserPage";
 import {User} from "./Types/UserType";
 
-
-
 function App(props:User) {
 
   return (
@@ -16,7 +14,7 @@ function App(props:User) {
         <header><Header/></header>
         <Routes>
             <Route path={`/user/${props.id}`} element={<UserPage img={props.img} name={props.name}/>}/>
-            <Route path={"/register"} element={<RegisterPage course={""} id={""} img={""} name={""} password={""}/>}/>
+            <Route path={"/register"} element={<RegisterPage course={""} id={""} img={""} name={""} password={""} />}/>
             <Route path={"/"} element={<HomePage/>}/>
         </Routes>
     </div>
