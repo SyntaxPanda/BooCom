@@ -7,7 +7,8 @@ import Header from  './Pages/Header';
 import UserPage from "./Pages/UserPage";
 import {User} from "./Types/UserType";
 
-function App(props:User) {
+
+function App() {
 
   return (
     <div className="App">
