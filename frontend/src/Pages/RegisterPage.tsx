@@ -1,9 +1,11 @@
 import React, {ChangeEvent, FormEvent, useState} from 'react';
 import axios from "axios";
 import {User} from "../Types/UserType";
-import {SelectChangeEvent} from "@mui/material";
+import {useNavigate} from "react-router-dom";
 
 export default function RegisterPage(props: User) {
+    const navigate = useNavigate();
+
     const [name, setName] =
         useState<string>("")
     const [password, setPassword] =
@@ -13,6 +15,9 @@ export default function RegisterPage(props: User) {
     const [userList, setUserList] =
         useState<User[]>([])
 
+    function onClickHandler() {
+        navigate(`/user/${props.id}`);
+    }
     function addUser(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
         console.log(course)
@@ -22,7 +27,6 @@ export default function RegisterPage(props: User) {
             course: course
         })
             .then(response => setUserList(response.data))
-
         setName("")
         setPassword("")
 
@@ -58,7 +62,7 @@ export default function RegisterPage(props: User) {
                     </select>
                 </div>
                 <div>
-                    <button>Send</button>
+                    <button onClick={onClickHandler}>Send</button>
                 </div>
             </form>
         </div>
