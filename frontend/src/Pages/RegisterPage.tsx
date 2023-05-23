@@ -13,7 +13,6 @@ export default function RegisterPage(props: User) {
     const [userList, setUserList] =
         useState<User[]>([])
 
-
     function addUser(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
         console.log(course)
@@ -39,11 +38,7 @@ export default function RegisterPage(props: User) {
 
     function OnChangeHandlerUserCourse(event: ChangeEvent<HTMLSelectElement>) {
         setCourse(event.target.value)
-        console.log(event)
-        console.log(course)
     }
-
-
 
     return (
         <div>
