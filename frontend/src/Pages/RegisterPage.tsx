@@ -15,7 +15,7 @@ export default function RegisterPage(props: User) {
     const [userList, setUserList] =
         useState<User[]>([])
 
-    function onClickHandler() {
+    function onClickHandlerRegister() {
         navigate(`/user/${props.id}`);
     }
     function addUser(event: FormEvent<HTMLFormElement>) {
@@ -62,7 +62,7 @@ export default function RegisterPage(props: User) {
                     </select>
                 </div>
                 <div>
-                    <button onClick={onClickHandler}>Send</button>
+                    <button onClick={onClickHandlerRegister}>Send</button>
                 </div>
             </form>
         </div>
