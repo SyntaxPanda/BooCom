@@ -14,4 +14,13 @@ public class User {
     private String id;
     private UserCourse course;
     private String img;
+
+    public UserDTO convertUserToUserDTO() {
+        return new UserDTO(
+                this.getName(),
+                this.getId(),
+                this.getCourse(),
+                this.getImg()
+        );
+    }
 }
