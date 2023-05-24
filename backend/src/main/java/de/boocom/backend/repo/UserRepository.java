@@ -11,6 +11,7 @@ import java.util.Map;
 public class UserRepository {
 
     private Map<String, User> userMap= new HashMap<>();
+    
     public void addUser(User userToAdd) {
         userMap.put(userToAdd.getId(), userToAdd);
     }

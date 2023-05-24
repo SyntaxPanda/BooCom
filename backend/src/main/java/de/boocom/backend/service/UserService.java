@@ -24,7 +24,7 @@ public class UserService {
                 );
     }
 
-    public User getUserPageById(String id){
-        return userRepository.getUserPageById(id);
+    public UserDTO getUserPageById(String id){
+        return userRepository.getUserPageById(id).convertUserToUserDTO();
     }
 }

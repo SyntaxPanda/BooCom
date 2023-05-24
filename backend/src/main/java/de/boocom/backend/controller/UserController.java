@@ -19,7 +19,7 @@ public class UserController {
     }
 
     @GetMapping("/user/{id}")
-    public User getUserPageById(@PathVariable String id){
+    public UserDTO getUserPageById(@PathVariable String id){
         return userService.getUserPageById(id);
     }
 }
