@@ -17,10 +17,10 @@ public class User {
 
     public UserDTO convertUserToUserDTO() {
         return new UserDTO(
-                this.getName(),
-                this.getId(),
-                this.getCourse(),
-                this.getImg()
+                this.name,
+                this.id,
+                this.course,
+                this.img
         );
     }
 }
