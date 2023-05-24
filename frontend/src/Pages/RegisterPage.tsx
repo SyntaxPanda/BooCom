@@ -15,9 +15,6 @@ export default function RegisterPage(props: User) {
     const [userList, setUserList] =
         useState<User[]>([])
 
-    function onClickHandlerRegister() {
-        navigate(`/user/${props.id}`);
-    }
     function addUser(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
         console.log(course)
@@ -26,7 +23,10 @@ export default function RegisterPage(props: User) {
             password: password,
             course: course
         })
-            .then(response => setUserList(response.data))
+            .then(response => {
+                setUserList(response.data)
+                navigate('/user/' + response.data.id)
+            })
         setName("")
         setPassword("")
 
@@ -62,7 +62,7 @@ export default function RegisterPage(props: User) {
                     </select>
                 </div>
                 <div>
-                    <button onClick={onClickHandlerRegister}>Send</button>
+                    <button>Send</button>
                 </div>
             </form>
         </div>
