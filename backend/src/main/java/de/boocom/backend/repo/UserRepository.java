@@ -1,6 +1,7 @@
 package de.boocom.backend.repo;
 
 import de.boocom.backend.model.User;
+import de.boocom.backend.model.UserDTO;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -12,5 +13,9 @@ public class UserRepository {
     private Map<String, User> userMap= new HashMap<>();
     public void addUser(User userToAdd) {
         userMap.put(userToAdd.getId(), userToAdd);
+    }
+
+    public User getUserPageById(String id) {
+        return userMap.get(id);
     }
 }
