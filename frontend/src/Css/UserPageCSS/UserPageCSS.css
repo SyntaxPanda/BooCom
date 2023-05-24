@@ -1,23 +1,37 @@
 .containerUserPage {
     display: flex;
-
+    padding-right: 500px;
+    background-color: #61dafb;
+    border-top: 1px solid #000;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    align-content: center;
+    width: auto;
+    height: auto;
 }
-
 .containerUserImage {
-    display:inline-flex;
+    display:block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
     border-radius: 180px;
-    margin-left: 30px;
-    margin-top: 100px;
-    border: 3px solid #020202;
+    margin:50px;
+    border: 1px solid #020202;
     width: 160px;
     height: 160px;
     background: #fff url(../../images/userImage_placeholder.png) center center/cover no-repeat;
 }
 
 .containerUserName {
-    display: flex;
-
-}
-#userImage{
-
+    display:block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    margin:80px;
+    font-size: 100px;
+    font-family: "American Typewriter";
 }
