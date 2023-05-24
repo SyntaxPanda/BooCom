@@ -1,9 +1,7 @@
 package de.boocom.backend.repo;
 
 import de.boocom.backend.model.User;
-import de.boocom.backend.model.UserDTO;
 import org.springframework.stereotype.Repository;
-
 import java.util.HashMap;
 import java.util.Map;
 

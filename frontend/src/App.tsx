@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
 import HomePage from "./Pages/HomePage";
 import {Route, Routes} from "react-router-dom";
@@ -6,7 +6,7 @@ import RegisterPage from  "./Pages/RegisterPage";
 import Header from  './Pages/Header';
 import UserPage from "./Pages/UserPage";
 
-function App() {
+export default function App() {
 
   return (
     <div className="App">
@@ -19,5 +19,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

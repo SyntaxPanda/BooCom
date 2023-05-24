@@ -4,13 +4,14 @@ import {User} from "../Types/UserType";
 import {useNavigate} from "react-router-dom";
 
 export default function RegisterPage(props: User) {
+
     const navigate = useNavigate();
 
     const [name, setName] =
         useState<string>("")
     const [password, setPassword] =
         useState<string>("")
-    const[course, setCourse] = useState("")
+    const [course, setCourse] = useState("")
 
     const [userList, setUserList] =
         useState<User[]>([])
@@ -29,7 +30,6 @@ export default function RegisterPage(props: User) {
             })
         setName("")
         setPassword("")
-
     }
 
     function OnChangeHandlerUserName(event: ChangeEvent<HTMLInputElement>) {
@@ -56,7 +56,7 @@ export default function RegisterPage(props: User) {
                 </div>
                 <div>
                     <select name={"course"} onChange={OnChangeHandlerUserCourse}>
-                        <option >plz select course</option>
+                        <option>Please select course:</option>
                         <option value={"BOJAVA231"}>Bo-java-23-1</option>
                         <option value={"COACH"}>Coach</option>
                     </select>
@@ -66,5 +66,5 @@ export default function RegisterPage(props: User) {
                 </div>
             </form>
         </div>
-    );
+    )
 }
