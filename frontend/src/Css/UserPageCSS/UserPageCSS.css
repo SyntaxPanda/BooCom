@@ -1,0 +1,23 @@
+.containerUserPage {
+    display: flex;
+
+}
+
+.containerUserImage {
+    display:inline-flex;
+    border-radius: 180px;
+    margin-left: 30px;
+    margin-top: 100px;
+    border: 3px solid #020202;
+    width: 160px;
+    height: 160px;
+    background: #fff url(../../images/userImage_placeholder.png) center center/cover no-repeat;
+}
+
+.containerUserName {
+    display: flex;
+
+}
+#userImage{
+
+}

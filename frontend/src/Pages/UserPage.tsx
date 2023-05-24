@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {User} from "../Types/UserType";
 import axios from "axios";
 import {useParams} from "react-router-dom";
+import "../Css/UserPageCSS/UserPageCSS.css"
 
 export default function UserPage() {
 
@@ -16,9 +17,9 @@ export default function UserPage() {
     }
     useEffect(getUserPageById,[])
     return (
-        <div>
-            <div>Bild</div>
-            <div>{user.name}</div>
+        <div className={"containerUserPage"}>
+            <div className={"containerUserImage"}></div>
+            <div className={"containerUserName"}>{user.name}</div>
         </div>
     )
 }
