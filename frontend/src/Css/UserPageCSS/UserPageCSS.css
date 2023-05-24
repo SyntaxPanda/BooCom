@@ -9,7 +9,7 @@
     align-items: flex-start;
     align-content: center;
     width: auto;
-    height: auto;
+    height: 100%;
 }
 .containerUserImage {
     display:block;
