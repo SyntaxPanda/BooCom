@@ -6,6 +6,8 @@ import de.boocom.backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
@@ -13,13 +15,18 @@ public class UserController {
 
     private final UserService userService;
 
-    @PostMapping ("/register/user")
-    public UserDTO addUser(@RequestBody User userToAdd){
+    @PostMapping("/register/user")
+    public UserDTO addUser(@RequestBody User userToAdd) {
         return userService.addUser(userToAdd);
     }
 
     @GetMapping("/user/{id}")
-    public UserDTO getUserPageById(@PathVariable String id){
+    public UserDTO getUserPageById(@PathVariable String id) {
         return userService.getUserPageById(id);
+    }
+
+    @GetMapping("/users")
+    public List<UserDTO> getAllUser() {
+        return userService.getAllUser();
     }
 }
