@@ -13,6 +13,7 @@ export default function Footer() {
         useState("")
 
     function getUserFromList() {
+        setUserList([])
         axios.get("/api/users")
             .then(response => {
                 setUserList(response.data);
@@ -27,7 +28,6 @@ export default function Footer() {
     }
 
     function onSubmitHandler(event: FormEvent<HTMLFormElement>) {
-        event.preventDefault()
         const filteredUser = userList.find(user =>
             user.name.toLowerCase().includes(filter.toLowerCase())
         );

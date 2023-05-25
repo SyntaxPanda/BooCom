@@ -18,7 +18,7 @@ export default function UserPage() {
             ).catch(error => console.error(error))
     }
 
-    useEffect(getUserPageById, [])
+    useEffect(getUserPageById, [id])
 
     return (
         <div className={"containerUserPage"}>
