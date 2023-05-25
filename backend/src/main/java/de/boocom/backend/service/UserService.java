@@ -6,6 +6,8 @@ import de.boocom.backend.repo.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -21,10 +23,14 @@ public class UserService {
                 userToAdd.getId(),
                 userToAdd.getCourse(),
                 userToAdd.getImg()
-                );
+        );
     }
 
-    public UserDTO getUserPageById(String id){
+    public UserDTO getUserPageById(String id) {
         return userRepository.getUserPageById(id).convertUserToUserDTO();
+    }
+
+    public List<UserDTO> getAllUser() {
+        return userRepository.getAllUser();
     }
 }
