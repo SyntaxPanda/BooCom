@@ -40,7 +40,8 @@ class UserControllerTest {
                         """
                                 {
                                 "name":"somebody",
-                                "course":"BOJAVA231"                      
+                                "course":"BOJAVA231",
+                                "img" : null                      
                                 }"""
                 )).andExpect(jsonPath("$.id").isNotEmpty());
     }
@@ -68,7 +69,8 @@ class UserControllerTest {
                 .andExpect(content().json("""
                         {
                          "name":"somebody",
-                         "course":"BOJAVA231"                
+                         "course":"BOJAVA231",
+                         "img" : null                
                         }"""
                 )).andExpect(jsonPath("$.id").value(user.getId()));
     }
