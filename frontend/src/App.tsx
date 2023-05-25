@@ -5,6 +5,7 @@ import {Route, Routes} from "react-router-dom";
 import RegisterPage from "./pages/RegisterPage";
 import Header from './pages/Header';
 import UserPage from "./pages/UserPage";
+import Footer from "./pages/Footer";
 
 export default function App() {
 
@@ -15,7 +16,8 @@ export default function App() {
                 <Route path={`/user/:id`} element={<UserPage/>}/>
                 <Route path={"/register"} element={<RegisterPage/>}/>
                 <Route path={"/"} element={<HomePage/>}/>
-        </Routes>
+            </Routes>
+            <footer><Footer/></footer>
     </div>
   );
 }
