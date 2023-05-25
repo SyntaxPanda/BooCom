@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FormEvent, useState} from 'react';
 import axios from "axios";
-import {User} from "../Types/UserType";
+import {User} from "../types/UserType";
 import {useNavigate} from "react-router-dom";
 
 export default function RegisterPage() {

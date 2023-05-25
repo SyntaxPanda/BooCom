@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {User} from "../Types/UserType";
+import {User} from "../types/UserType";
 import axios from "axios";
 import {useParams} from "react-router-dom";
-import "../Css/UserPageCSS/UserPageCSS.css"
+import "../css/userPageCSS/UserPageCSS.css"
 
 export default function UserPage() {
 

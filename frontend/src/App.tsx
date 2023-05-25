@@ -1,20 +1,20 @@
 import React from 'react';
 import './App.css';
-import HomePage from "./Pages/HomePage";
+import HomePage from "./pages/HomePage";
 import {Route, Routes} from "react-router-dom";
-import RegisterPage from  "./Pages/RegisterPage";
-import Header from  './Pages/Header';
-import UserPage from "./Pages/UserPage";
+import RegisterPage from "./pages/RegisterPage";
+import Header from './pages/Header';
+import UserPage from "./pages/UserPage";
 
 export default function App() {
 
-  return (
-    <div className="App">
-        <header><Header/></header>
-        <Routes>
-            <Route path={`/user/:id`} element={<UserPage/>}/>
-            <Route path={"/register"} element={<RegisterPage/>}/>
-            <Route path={"/"} element={<HomePage/>}/>
+    return (
+        <div className="App">
+            <header><Header/></header>
+            <Routes>
+                <Route path={`/user/:id`} element={<UserPage/>}/>
+                <Route path={"/register"} element={<RegisterPage/>}/>
+                <Route path={"/"} element={<HomePage/>}/>
         </Routes>
     </div>
   );
