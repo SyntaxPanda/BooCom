@@ -13,7 +13,7 @@ export default function App() {
         <header><Header/></header>
         <Routes>
             <Route path={`/user/:id`} element={<UserPage/>}/>
-            <Route path={"/register"} element={<RegisterPage course={""} id={""} img={""} name={""} password={""} />}/>
+            <Route path={"/register"} element={<RegisterPage/>}/>
             <Route path={"/"} element={<HomePage/>}/>
         </Routes>
     </div>

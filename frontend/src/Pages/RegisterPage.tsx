@@ -3,7 +3,7 @@ import axios from "axios";
 import {User} from "../Types/UserType";
 import {useNavigate} from "react-router-dom";
 
-export default function RegisterPage(props: User) {
+export default function RegisterPage() {
 
     const navigate = useNavigate();
 
