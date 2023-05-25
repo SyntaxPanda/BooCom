@@ -1,7 +1,7 @@
 export type User ={
     name:string;
-    password:string;
+    password?:string;
     id:string;
-    course:string;
+    course?:string;
     img:string
 }

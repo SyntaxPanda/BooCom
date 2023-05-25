@@ -1,4 +1,18 @@
 .registerButton{
-    display: flex;
+    display:flex;
     justify-content: flex-end;
+    align-items: center;
+}
+
+.header-color{
+    height: 50px;
+    width: auto;
+    background-color: #1a6d88;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+    padding: 20px;
 }

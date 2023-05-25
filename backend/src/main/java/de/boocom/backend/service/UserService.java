@@ -23,4 +23,8 @@ public class UserService {
                 userToAdd.getImg()
                 );
     }
+
+    public UserDTO getUserPageById(String id){
+        return userRepository.getUserPageById(id).convertUserToUserDTO();
+    }
 }
