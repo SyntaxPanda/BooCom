@@ -1,7 +1,8 @@
-import React, {ChangeEvent, FormEvent, useEffect, useState} from 'react';
-import {useNavigate} from "react-router-dom";
+import React, {ChangeEvent, useEffect, useState} from 'react';
+import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import {User} from "../types/UserType";
+import "../css/footerCSS/FooterPage.css";
 
 export default function Footer() {
     const navigate = useNavigate();
@@ -11,6 +12,9 @@ export default function Footer() {
 
     const [filter, setFilter] =
         useState("")
+
+    const [filteredData, setFilteredData]
+        = useState<User[]>([])
 
     function getUserFromList() {
         setUserList([])
@@ -23,32 +27,39 @@ export default function Footer() {
             });
     }
 
-    function onTextChange(e: ChangeEvent<HTMLInputElement>) {
-        setFilter(e.target.value)
-    }
-
-    function onSubmitHandler(event: FormEvent<HTMLFormElement>) {
-        const filteredUser = userList.find(user =>
-            user.name.toLowerCase().includes(filter.toLowerCase())
-        );
-
-        if (filteredUser) {
-            navigate("/user/" + filteredUser.id);
+    const handleFilter = (event: ChangeEvent<HTMLInputElement>) => {
+        setFilter(event.target.value)
+        const newFilter = userList.filter((value) => {
+            return value.name.toLowerCase().includes(filter.toLowerCase());
+        })
+        if (filter === "") {
+            setFilteredData([])
+        } else {
+            setFilteredData(newFilter)
         }
     }
 
-    useEffect(getUserFromList, []);
+    useEffect(getUserFromList, [filteredData]);
 
     return (
         <div>
-            <form onSubmit={onSubmitHandler}>
+            <div className={"inputToCenter"}>
                 <div>
-                    <input type="text" onChange={onTextChange}/>
+                    <input type="text" onChange={handleFilter}/>
                 </div>
-                <div>
-                    <button>Find</button>
-                </div>
-            </form>
+                {filteredData.length != 0 && (
+                        <div className={"dataResult"}>
+                            {filteredData.slice(0, 15).map((user) => {
+                                return (
+                                    <Link to={"/user/" + user.id}>
+                                        <p>{user.img} {user.name} {user.course}
+                                        </p></Link>
+                                )
+                            })}
+                        </div>
+                    )
+                }
+            </div>
         </div>
     );
 }
