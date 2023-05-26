@@ -2,6 +2,7 @@ import React, {ChangeEvent, FormEvent, useState} from 'react';
 import axios from "axios";
 import {User} from "../types/UserType";
 import {useNavigate} from "react-router-dom";
+import "../css/registerCSS/RegisterPage.css"
 
 export default function RegisterPage() {
 
@@ -45,7 +46,8 @@ export default function RegisterPage() {
     }
 
     return (
-        <div>
+        <div className={"registerPage"}>
+            <div className={"registerForm"}>
             <form onSubmit={addUser}>
                 <div>
                     <input placeholder="Name" type="text" value={name} onChange={OnChangeHandlerUserName}/>
@@ -65,6 +67,7 @@ export default function RegisterPage() {
                     <button>Send</button>
                 </div>
             </form>
+            </div>
         </div>
     )
 }

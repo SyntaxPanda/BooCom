@@ -42,7 +42,7 @@ export default function Footer() {
     useEffect(getUserFromList, [filteredData]);
 
     return (
-        <div>
+        <div className={"footer-style"}>
             <div className={"inputToCenter"}>
                 <div>
                     <input type="text" onChange={handleFilter}/>

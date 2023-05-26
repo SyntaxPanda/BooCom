@@ -5,7 +5,9 @@
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     overflow: hidden;
-    overflow-y: auto;
+    overflow-y: scroll;
+    margin-top: -182px;
+    border-radius: 10px;
 }
 
 .dataResult .dataItem {
@@ -18,11 +20,13 @@
 
 .dataItem p{
     margin-left: 10px;
+    margin-top: 10px;
+    border: 1px #000000;
 }
 
 .search {
     background-color: white;
-    border: 0;
+    border: 1px #000000;
     border-radius: 2px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -39,4 +43,17 @@
 
 p:hover{
     background-color: lightgray;
+}
+
+.footer-style{
+    height: 50px;
+    width: auto;
+    background-color: #1a6d88;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+    padding: 20px;
 }

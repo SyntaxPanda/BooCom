@@ -1,0 +1,14 @@
+.registerPage{
+    height: 100%;
+    width: auto;
+}
+
+.registerForm{
+    margin-top: 20%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: normal;
+}
