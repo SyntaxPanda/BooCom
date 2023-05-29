@@ -1,11 +1,11 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import axios from "axios";
 import {User} from "../types/UserType";
 import "../css/footerCSS/FooterPage.css";
+import userImage_placeholder from '../images/userImage_placeholder.png';
 
 export default function Footer() {
-    const navigate = useNavigate();
 
     const [userList, setUserList] =
         useState<User[]>([])
@@ -43,21 +43,31 @@ export default function Footer() {
 
     return (
         <div className={"footer-style"}>
+            <div className={"booComLogoRegisterPage"}>
+                <img src="../images/userImage_placeholder.png" alt="bild"/>
+            </div>
             <div className={"inputToCenter"}>
                 <div>
                     <input type="text" onChange={handleFilter}/>
                 </div>
-                {filteredData.length != 0 && (
-                        <div className={"dataResult"}>
-                            {filteredData.slice(0, 15).map((user) => {
-                                return (
-                                    <Link to={"/user/" + user.id}>
-                                        <p>{user.img} {user.name} {user.course}
-                                        </p></Link>
-                                )
-                            })}
-                        </div>
-                    )
+            </div>
+            <div className={"dataResultBox"}>
+                {filteredData.length !== 0 && (
+                    <div className={"dataResult"}>
+                        {filteredData.slice(0, 15).map((user) => {
+                            return (
+                                <Link to={"/user/" + user.id}>
+                                    <div className={"dataItem"}>
+                                        <div><img className={"imgSize"} src={userImage_placeholder} alt="bild"/></div>
+                                        <p className={"userInformation"}>
+                                            {user.img} {user.name} {user.course}
+                                        </p>
+                                    </div>
+                                </Link>
+                            )
+                        })}
+                    </div>
+                )
                 }
             </div>
         </div>
