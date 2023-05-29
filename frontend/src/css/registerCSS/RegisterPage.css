@@ -11,21 +11,26 @@
     justify-content: center;
     align-items: center;
     align-content: normal;
-    transform: scale(2);
 }
 
 .inputRegisterPageName {
-    margin-top: 10px;
+    margin-bottom: 25%;
+    transform: scale(2);
 }
 
 .inputRegisterPagePassword {
-    margin-top: 10px;
+    margin-bottom: 25%;
+    transform: scale(2);
+
 }
 
 .selectCourseRegisterPage {
-    margin-top: 10px;
+    margin-bottom: 25%;
+    transform: scale(2);
+
 }
 
 .buttonSendRegisterPage {
-    margin-top: 10px;
+    transform: scale(2);
+
 }
