@@ -1,14 +1,31 @@
 .registerPage{
+    display: grid;
     height: 100%;
     width: auto;
 }
 
-.registerForm{
-    margin-top: 20%;
-    display: flex;
+.registerForm {
+    display: grid;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     align-content: normal;
+    transform: scale(2);
+}
+
+.inputRegisterPageName {
+    margin-top: 10px;
+}
+
+.inputRegisterPagePassword {
+    margin-top: 10px;
+}
+
+.selectCourseRegisterPage {
+    margin-top: 10px;
+}
+
+.buttonSendRegisterPage {
+    margin-top: 10px;
 }

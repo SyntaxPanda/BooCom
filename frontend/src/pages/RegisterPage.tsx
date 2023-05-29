@@ -49,21 +49,21 @@ export default function RegisterPage() {
         <div className={"registerPage"}>
             <div className={"registerForm"}>
             <form onSubmit={addUser}>
-                <div>
+                <div className={"inputRegisterPageName"}>
                     <input placeholder="Name" type="text" value={name} onChange={OnChangeHandlerUserName}/>
                 </div>
-                <div>
+                <div className={"inputRegisterPagePassword"}>
                     <input placeholder={"Password"} type="password" value={password}
                            onChange={OnChangeHandlerUserPassword}/>
                 </div>
-                <div>
+                <div className={"selectCourseRegisterPage"}>
                     <select name={"course"} onChange={OnChangeHandlerUserCourse}>
                         <option>Please select course:</option>
                         <option value={"BOJAVA231"}>Bo-java-23-1</option>
                         <option value={"COACH"}>Coach</option>
                     </select>
                 </div>
-                <div>
+                <div className={"buttonSendRegisterPage"}>
                     <button>Send</button>
                 </div>
             </form>
