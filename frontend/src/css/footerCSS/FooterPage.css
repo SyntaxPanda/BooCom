@@ -4,6 +4,15 @@
     align-content: center
 }
 
+.boocomimg {
+    display: grid;
+    align-items: center;
+    border-style: solid;
+    border-radius: 180px;
+    width: 70px;
+    margin: 7px;
+}
+
 .inputToCenter {
     display: grid;
     justify-self: center;
@@ -62,6 +71,7 @@
     border-style: solid;
     border-color: #000000;
     border-radius: 15px;
+    background-color: #1a6d88;
 }
 
 .dataItem:hover {
