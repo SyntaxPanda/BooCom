@@ -4,6 +4,7 @@ import axios from "axios";
 import {User} from "../types/UserType";
 import "../css/footerCSS/FooterPage.css";
 import userImage_placeholder from '../images/userImage_placeholder.png';
+import BooComLogo from '../images/BooComLogo.png';
 
 export default function Footer() {
 
@@ -44,7 +45,7 @@ export default function Footer() {
     return (
         <div className={"footer-style"}>
             <div className={"booComLogoRegisterPage"}>
-                <img src="../images/userImage_placeholder.png" alt="bild"/>
+                <img className={"boocomimg"} src={BooComLogo} alt="bild"/>
             </div>
             <div className={"inputToCenter"}>
                 <div>
