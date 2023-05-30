@@ -1,6 +1,6 @@
 FROM openjdk:17
 
-EXPOSE
+EXPOSE 8080
 
 ADD backend/target/BooCom.jar BooCom.jar
 
