@@ -2,7 +2,7 @@ package de.boocom.backend.controller;
 
 import de.boocom.backend.model.UserDTO;
 import de.boocom.backend.model.UserUnSave;
-import de.boocom.backend.service.UserService;
+import de.boocom.backend.service.MongoUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserController {
 
-    private final UserService userService;
+    private final MongoUserDetailsService userService;
 
     @PostMapping("/register/user")
     public UserDTO addUser(@RequestBody UserUnSave userUnSaveToAdd) {
