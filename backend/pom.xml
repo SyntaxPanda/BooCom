@@ -76,6 +76,7 @@
     </dependencies>
 
     <build>
+        <finalName>BooCom</finalName>
         <plugins>
             <plugin>
                 <groupId>org.jacoco</groupId>
