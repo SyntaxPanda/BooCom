@@ -22,4 +22,10 @@ public class MongoUserDetailsService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("User with this username: " + name + " not found"));
         return new User(optionalUserUnSave.getName(), optionalUserUnSave.getPassword(), List.of());
     }
+
+    public void addUser(UserUnSave userUnSave) {
+        repo.insert(userUnSave);
+    }
+
+    public
 }
