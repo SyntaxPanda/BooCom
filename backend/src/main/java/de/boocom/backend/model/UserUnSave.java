@@ -21,10 +21,10 @@ public class UserUnSave {
 
     public UserDTO convertUserToUserDTO() {
         return new UserDTO(
-                this.name,
-                this.id,
-                this.course,
-                this.img
+                name,
+                id,
+                course,
+                img
         );
     }
 }
