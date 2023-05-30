@@ -1,7 +1,7 @@
 package de.boocom.backend.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import de.boocom.backend.model.User;
+import de.boocom.backend.model.UserUnSave;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class UserControllerTest {
+class UserUnSaveControllerTest {
 
     @Autowired
     MockMvc mockMvc;
@@ -60,9 +60,9 @@ class UserControllerTest {
         String content = response.getResponse().getContentAsString();
 
         ObjectMapper mapper = new ObjectMapper();
-        User user = mapper.readValue(content, User.class);
+        UserUnSave userUnSave = mapper.readValue(content, UserUnSave.class);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/user/" + user.getId()))
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/user/" + userUnSave.getId()))
                 .andExpect(status().isOk())
                 .andExpect(content().json("""
                         {
@@ -70,7 +70,7 @@ class UserControllerTest {
                          "course":"BOJAVA231",
                          "img" : null                
                         }"""
-                )).andExpect(jsonPath("$.id").value(user.getId()));
+                )).andExpect(jsonPath("$.id").value(userUnSave.getId()));
     }
 
     @Test

@@ -5,25 +5,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig {
-
-    @Bean
-    public InMemoryUserDetailsManager userDetailsService() {
-        return new InMemoryUserDetailsManager(
-                User.builder()
-                        .username("Tim")
-                        .password("123")
-                        .build()
-        );
-    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -35,9 +23,9 @@ public class SecurityConfig {
         return http
                 .csrf().disable()
                 .httpBasic(Customizer.withDefaults())
-                .and()
                 .authorizeHttpRequests()
-                .requestMatcher("/api").authenticated()
+                .requestMatchers("/api").authenticated()
+                //.requestMatchers("/api/user/{id}").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
