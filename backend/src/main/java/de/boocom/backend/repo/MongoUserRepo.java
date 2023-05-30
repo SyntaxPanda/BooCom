@@ -10,5 +10,4 @@ import java.util.Optional;
 public interface MongoUserRepo extends MongoRepository<UserUnSave, String> {
 
     public Optional<UserUnSave> findUserUnSaveByName(String name);
-
 }
