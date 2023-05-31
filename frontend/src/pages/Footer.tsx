@@ -56,39 +56,6 @@ export default function Footer() {
     useEffect(getUserFromList, [filteredData]);
 
     return (
-        /*<div className={"footer-style"}>
-            <div className={"booComLogoRegisterPage"}>
-                <img className={"boocomimg"} src={BooComLogo} alt="bild"/>
-            </div>
-            <div className={"inputToCenter"}>
-                <div>
-                    <input type="text" onChange={handleFilter} className={selectedUser ? 'hideDropdown' : ''}/>
-                </div>
-            </div>
-            <div className={"dataResultBox"}>
-                {selectedUser === null && filteredData.length !== 0 && (
-                    <div className={"dataResult"}>
-                        {filteredData.slice(0, 15).map((user) => {
-                            return (
-                                <Link to={"/user/" + user.id} onClick={() => {
-                                    handleUserSelected(user);
-                                    handleClerarSelection();
-                                }}>
-                                    <div className={"dataItem"}>
-                                        <div><img className={"imgSize"} src={userImage_placeholder} alt="bild"/></div>
-                                        <p className={"userInformation"}>
-                                            {user.img} {user.name} {user.course}
-                                        </p>
-                                    </div>
-                                </Link>
-                            )
-                        })}
-                    </div>
-                )
-                }
-            </div>
-        </div>*/
-
         <>
             <Box className="Box" sx={{
                 padding: 2,
