@@ -102,7 +102,9 @@ export default function Footer() {
                         <img className={"boocomimg"} src={BooComLogo} alt="bild"/>
                     </Grid>
                     <Grid item xs={8}>
-                        <input className={"inputfield"} type="text" onChange={handleFilter}/>
+                        <label className={"search-color"}>Search User: </label>
+                        <input className={"inputfield"} placeholder={"Search user here!"} type="text"
+                               onChange={handleFilter}/>
                     </Grid>
                     <Grid item xs={2}>
                         {selectedUser === null && filteredData.length !== 0 && (
