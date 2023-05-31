@@ -4,13 +4,14 @@
     align-content: center
 }
 
+.inputfield {
+    margin-top: 5px;
+}
+
 .boocomimg {
-    display: grid;
-    align-items: center;
     border-style: solid;
     border-radius: 180px;
-    width: 70px;
-    margin: 7px;
+    width: 45px;
 }
 
 .inputToCenter {
@@ -25,11 +26,11 @@
     border-style: solid;
     border-radius: 180px;
     width: 40px;
-    margin: 4px;
+    margin: 2px;
 }
 
 .dataResult {
-    background-color: #c40b0b;
+    background-color: gold;
     box-shadow: rgba(0, 0, 0, 0.35) 5px 5px 15px;
     overflow: hidden;
     overflow-y: scroll;
@@ -49,13 +50,13 @@
 
 .dataResult {
     display: grid;
-    justify-self: flex-end;
+    justify-self: flex-start;
 }
 
 .dataResultBox {
     display: grid;
     justify-self: flex-start;
-    align-content: center;
+    align-content: flex-start;
 }
 
 .userInformation {

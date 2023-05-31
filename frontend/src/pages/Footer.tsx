@@ -5,6 +5,7 @@ import {User} from "../types/UserType";
 import "../css/footerCSS/FooterPage.css";
 import userImage_placeholder from '../images/userImage_placeholder.png';
 import BooComLogo from '../images/BooComLogo.png';
+import {Box, Grid} from "@mui/material";
 
 export default function Footer() {
 
@@ -55,7 +56,7 @@ export default function Footer() {
     useEffect(getUserFromList, [filteredData]);
 
     return (
-        <div className={"footer-style"}>
+        /*<div className={"footer-style"}>
             <div className={"booComLogoRegisterPage"}>
                 <img className={"boocomimg"} src={BooComLogo} alt="bild"/>
             </div>
@@ -86,6 +87,48 @@ export default function Footer() {
                 )
                 }
             </div>
-        </div>
+        </div>*/
+
+        <>
+            <Box className="Box" sx={{
+                padding: 2,
+                margin: 1,
+                marginBottom: 2.5,
+                borderRadius: 3,
+                boxShadow: 10
+            }}>
+                <Grid container spacing={3}>
+                    <Grid item xs={2}>
+                        <img className={"boocomimg"} src={BooComLogo} alt="bild"/>
+                    </Grid>
+                    <Grid item xs={8}>
+                        <input className={"inputfield"} type="text" onChange={handleFilter}/>
+                    </Grid>
+                    <Grid item xs={2}>
+                        {selectedUser === null && filteredData.length !== 0 && (
+                            <div className={"dataResult"}>
+                                {filteredData.slice(0, 15).map((user) => {
+                                    return (
+                                        <Link to={"/user/" + user.id} onClick={() => {
+                                            handleUserSelected(user);
+                                            handleClerarSelection();
+                                        }}>
+                                            <div className={"dataItem"}>
+                                                <div><img className={"imgSize"} src={userImage_placeholder} alt="bild"/>
+                                                </div>
+                                                <p className={"userInformation"}>
+                                                    {user.img} {user.name} {user.course}
+                                                </p>
+                                            </div>
+                                        </Link>
+                                    )
+                                })}
+                            </div>
+                        )}
+                    </Grid>
+                </Grid>
+            </Box>
+        </>
+
     );
 }

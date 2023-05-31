@@ -3,7 +3,7 @@
     grid-template-columns: auto auto;
     grid-template-rows: auto 68%;
     background-color: #61dafb;
-    border: 2px solid #000000;
+    /*border: 2px solid #000000;*/
     align-content: flex-start;
     width: auto;
     height: 100%;
