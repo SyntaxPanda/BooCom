@@ -7,7 +7,7 @@ export default function useUser() {
         useState<string>()
 
     function login(username: string, password: string) {
-        return axios.post("/login", undefined, {auth: {username, password}})
+        return axios.post("/api/login", undefined, {auth: {username, password}})
             .then((r) => setUser(r.data))
     }
 
