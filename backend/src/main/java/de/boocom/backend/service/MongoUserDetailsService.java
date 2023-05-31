@@ -8,6 +8,8 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,6 +21,7 @@ import java.util.Optional;
 public class MongoUserDetailsService implements UserDetailsService {
     private final MongoUserRepo repo;
     private final GenerateId generateUUID;
+    private final PasswordEncoder passwordEncoder = Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8();
 
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
@@ -29,6 +32,7 @@ public class MongoUserDetailsService implements UserDetailsService {
 
     public UserDTO addUser(UserUnSave userUnSave) {
         userUnSave.setId(generateUUID.generateId());
+        userUnSave.setPassword(passwordEncoder.encode(userUnSave.getPassword()));
         repo.insert(userUnSave);
         return new UserDTO(
                 userUnSave.getName(),
