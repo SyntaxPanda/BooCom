@@ -17,6 +17,9 @@ export default function Footer() {
     const [filteredData, setFilteredData]
         = useState<User[]>([])
 
+    const [selectedUser, setSelectedUser] =
+        useState<User | null>(null)
+
     function getUserFromList() {
         setUserList([])
         axios.get("/api/users")
@@ -40,6 +43,15 @@ export default function Footer() {
         }
     }
 
+    const handleUserSelected = (user: User) => {
+        setSelectedUser(user);
+    }
+
+    const handleClerarSelection = () => {
+        setSelectedUser(null);
+        setFilteredData([]);
+    }
+
     useEffect(getUserFromList, [filteredData]);
 
     return (
@@ -49,15 +61,18 @@ export default function Footer() {
             </div>
             <div className={"inputToCenter"}>
                 <div>
-                    <input type="text" onChange={handleFilter}/>
+                    <input type="text" onChange={handleFilter} className={selectedUser ? 'hideDropdown' : ''}/>
                 </div>
             </div>
             <div className={"dataResultBox"}>
-                {filteredData.length !== 0 && (
+                {selectedUser === null && filteredData.length !== 0 && (
                     <div className={"dataResult"}>
                         {filteredData.slice(0, 15).map((user) => {
                             return (
-                                <Link to={"/user/" + user.id}>
+                                <Link to={"/user/" + user.id} onClick={() => {
+                                    handleUserSelected(user);
+                                    handleClerarSelection();
+                                }}>
                                     <div className={"dataItem"}>
                                         <div><img className={"imgSize"} src={userImage_placeholder} alt="bild"/></div>
                                         <p className={"userInformation"}>
