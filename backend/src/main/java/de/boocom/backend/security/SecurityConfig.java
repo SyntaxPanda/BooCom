@@ -35,7 +35,6 @@ public class SecurityConfig {
                 .httpBasic(Customizer.withDefaults())
                 .authorizeHttpRequests()
                 .requestMatchers("/api/user/**").authenticated()
-                //.requestMatchers("/api/user/{id}").authenticated()
                 .anyRequest().permitAll()
                 .and().build();
     }
