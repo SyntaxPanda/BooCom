@@ -43,16 +43,6 @@
     border-style: solid;
     border-color: black;
     width: 250px;
-}
-
-.dataItem {
-    display: grid;
-    grid-template-columns: auto auto;
-    align-items: center;
-    color: black;
-}
-
-.dataResult {
     display: grid;
     justify-self: flex-start;
 }
@@ -77,6 +67,9 @@
     border-color: #000000;
     border-radius: 15px;
     background-color: #1a6d88;
+    grid-template-columns: auto auto;
+    align-items: center;
+    color: black;
 }
 
 .dataItem:hover {
