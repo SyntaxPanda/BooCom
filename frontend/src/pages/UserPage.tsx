@@ -18,12 +18,27 @@ export default function UserPage() {
             ).catch(error => console.error(error))
     }
 
-    useEffect(getUserPageById, [])
+    useEffect(getUserPageById, [id])
 
     return (
         <div className={"containerUserPage"}>
             <div className={"containerUserImage"}></div>
             <div className={"containerUserName"}>{user.name}</div>
+            <div className={"placeholderDiv"}>placeholder Box</div>
+            <div className={"gitLinks"}>
+                <div className={"gitLink1"}>
+                    <a href="https://github.com/ernstBonn" target={"_blank"}>Git Johannes</a>
+                </div>
+                <div className={"gitLink2"}>
+                    <a href="https://github.com/SyntaxPanda" target={"_blank"}>Git Tim</a>
+                </div>
+                <div className={"gitLink3"}>
+                    <a href="https://github.com/paffenst" target={"_blank"}>Git Pavel</a>
+                </div>
+                <div className={"gitLink4"}>
+                    <a href="https://github.com/CrisHodel" target={"_blank"}>Git Cristina</a>
+                </div>
+            </div>
         </div>
     )
 }

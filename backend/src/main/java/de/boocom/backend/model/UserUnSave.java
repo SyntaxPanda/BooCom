@@ -3,11 +3,13 @@ package de.boocom.backend.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+@Document("UsersUnSave")
+public class UserUnSave {
 
     private String name;
     private String password;
@@ -17,10 +19,10 @@ public class User {
 
     public UserDTO convertUserToUserDTO() {
         return new UserDTO(
-                this.name,
-                this.id,
-                this.course,
-                this.img
+                name,
+                id,
+                course,
+                img
         );
     }
 }
