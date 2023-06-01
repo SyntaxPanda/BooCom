@@ -19,7 +19,8 @@ export default function LoginPage(props: Props) {
         props.login(username, password)
             .then(() => {
                 nav("/")
-            });
+            })
+            .catch(error => console.log(error.message));
     }
 
     function onChangeHandlerPassword(e: ChangeEvent<HTMLInputElement>) {
