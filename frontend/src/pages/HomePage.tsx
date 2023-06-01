@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FormEventHandler, useState} from 'react';
+import React, {ChangeEvent, ChangeEventHandler, FormEventHandler, useState} from 'react';
 import "../css/headerCSS/HeaderPage.css"
 import {Post} from "../types/PostType";
 import {
@@ -34,13 +34,17 @@ export default function HomePage() {
             .then(response => {
                 navigate("post/" + response.data.postId)
             })
+        setTitle("")
+        setDescription("")
+        setUserName("")
     }
 
     function setTitleHandler(e: ChangeEvent<HTMLInputElement>){
         setTitle(e.target.value)
     }
 
-    function setDescriptionHandler(e: ChangeEvent<HTMLInputElement>){
+    function setDescriptionHandler(e: ChangeEvent<HTMLTextAreaElement>){
+        e.preventDefault()
         setDescription(e.target.value)
     }
 
@@ -124,19 +128,24 @@ export default function HomePage() {
                 }}
                 >
                     <DialogContentText>
-                        User name
+                        <input placeholder={"title"} onChange={setTitleHandler}/>
+                    </DialogContentText>
+                    <DialogContentText>
+                        <input placeholder={"your name"} onChange={setUserNameHandler}/>
                     </DialogContentText>
                     <StyledTextarea
                         maxRows={20}
                         minRows={20}
                         aria-label="maximum height"
                         placeholder="Maximum 4 rows"
-                        defaultValue="blub here plz"
+                        // defaultValue="blub here plz"
+                        value={description}
+                        onChange={setDescriptionHandler}
                     />
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleClose}>Post</Button>
+                    <Button onClick={addNewPost}>Post</Button>
                 </DialogActions>
             </Dialog>
         </div>
