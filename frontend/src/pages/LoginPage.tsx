@@ -20,7 +20,7 @@ export default function LoginPage(props: Props) {
             .then(() => {
                 nav("/")
             })
-            .catch(error => console.log(error.message));
+            .catch(error => {console.error(error)});
     }
 
     function onChangeHandlerPassword(e: ChangeEvent<HTMLInputElement>) {
