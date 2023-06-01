@@ -1,0 +1,36 @@
+.registerPage{
+    display: grid;
+    height: 100%;
+    width: auto;
+}
+
+.registerForm {
+    display: grid;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: normal;
+}
+
+.inputRegisterPageName {
+    margin-bottom: 25%;
+    transform: scale(2);
+}
+
+.inputRegisterPagePassword {
+    margin-bottom: 25%;
+    transform: scale(2);
+
+}
+
+.selectCourseRegisterPage {
+    margin-bottom: 25%;
+    transform: scale(2);
+
+}
+
+.buttonSendRegisterPage {
+    transform: scale(2);
+
+}
