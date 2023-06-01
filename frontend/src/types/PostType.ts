@@ -1,6 +1,6 @@
 export type Post = {
     title:string;
     description:string;
-    img:string;
-    gif:string;
+    userName:string;
+    postId:string;
 }
