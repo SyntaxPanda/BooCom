@@ -14,9 +14,6 @@ export default function RegisterPage() {
         useState<string>("")
     const [course, setCourse] = useState("")
 
-    const [userList, setUserList] =
-        useState<User[]>([])
-
     function addUser(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
         console.log(course)
@@ -26,7 +23,6 @@ export default function RegisterPage() {
             course: course
         })
             .then(response => {
-                setUserList(response.data)
                 navigate('/user/' + response.data.id)
             })
         setName("")
