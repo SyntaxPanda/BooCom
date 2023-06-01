@@ -1,18 +1,52 @@
-import React, {useState} from 'react';
+import React, {ChangeEvent, FormEventHandler, useState} from 'react';
 import "../css/headerCSS/HeaderPage.css"
+import {Post} from "../types/PostType";
 import {
     Button,
     Dialog,
     DialogActions,
     DialogContent, DialogContentText,
     DialogTitle,
-    IconButton,
     styled, TextareaAutosize,
-    TextField,
-    Typography
 } from "@mui/material";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 export default function HomePage() {
+
+    const[title, setTitle] =
+        useState<string>("")
+
+    const[description, setDescription] =
+        useState<string>("")
+
+    const[userName, setUserName] =
+        useState<string>("")
+
+    const navigate = useNavigate();
+
+    function addNewPost(){
+        axios.post("/api/post/new", {
+            description: description,
+            title: title,
+            userName: userName
+        })
+            .then(response => {
+                navigate("post/" + response.data.postId)
+            })
+    }
+
+    function setTitleHandler(e: ChangeEvent<HTMLInputElement>){
+        setTitle(e.target.value)
+    }
+
+    function setDescriptionHandler(e: ChangeEvent<HTMLInputElement>){
+        setDescription(e.target.value)
+    }
+
+    function setUserNameHandler(e: ChangeEvent<HTMLInputElement>){
+        setUserName(e.target.value)
+    }
 
     const [open, setOpen] = React.useState(false);
 
