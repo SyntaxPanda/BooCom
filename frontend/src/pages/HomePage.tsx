@@ -1,6 +1,6 @@
-import React, {ChangeEvent, ChangeEventHandler, FormEventHandler, useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import "../css/headerCSS/HeaderPage.css"
-import {Post} from "../types/PostType";
+
 import {
     Button,
     Dialog,
@@ -31,9 +31,7 @@ export default function HomePage() {
             title: title,
             userName: userName
         })
-            .then(response => {
-                navigate("post/" + response.data.postId)
-            })
+            .then()
         setTitle("")
         setDescription("")
         setUserName("")
