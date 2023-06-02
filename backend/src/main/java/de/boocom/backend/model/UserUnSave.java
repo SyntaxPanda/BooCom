@@ -3,6 +3,7 @@ package de.boocom.backend.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
@@ -11,6 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("UsersUnSave")
 public class UserUnSave {
 
+    @Id
     private String name;
     private String password;
     private String id;
