@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class UserPost {
 
     private String id;
-    private String titel;
+    private String title;
     private String description;
     private String userName;
 

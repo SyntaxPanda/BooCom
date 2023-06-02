@@ -4,7 +4,6 @@ import de.boocom.backend.model.UserPost;
 import de.boocom.backend.service.MongoPostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api")
