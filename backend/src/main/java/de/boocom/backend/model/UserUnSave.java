@@ -11,8 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @Document("UsersUnSave")
 public class UserUnSave {
-
-    @Id
+    
     private String name;
     private String password;
     private String id;
