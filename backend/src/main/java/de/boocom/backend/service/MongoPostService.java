@@ -5,6 +5,8 @@ import de.boocom.backend.repo.MongoPostRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class MongoPostService {
@@ -13,5 +15,9 @@ public class MongoPostService {
     public UserPost addPost(UserPost addUserPost) {
        postRepo.insert(addUserPost);
        return addUserPost;
+    }
+
+    public List<UserPost> getAllPosts() {
+        return postRepo.findAll();
     }
 }
