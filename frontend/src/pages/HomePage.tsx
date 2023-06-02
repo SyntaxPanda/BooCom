@@ -1,16 +1,17 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
 import "../css/headerCSS/HeaderPage.css"
+import "../css/footerCSS/FooterPage.css"
 
 import {
     Button,
     Dialog,
     DialogActions,
     DialogContent, DialogContentText,
-    DialogTitle, getFabUtilityClass,
+    DialogTitle, Grid,
     styled, TextareaAutosize,
 } from "@mui/material";
 import axios from "axios";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {Post} from "../types/PostType";
 import userImage_placeholder from "../images/userImage_placeholder.png";
 
@@ -38,15 +39,18 @@ export default function HomePage() {
         setTitle("")
         setDescription("")
         setUserName("")
+        setOpen(false)
     }
 
     function getAllPosts() {
         axios.get("/api/posts")
             .then((response) => {
                 setPostList(response.data)
+
             })
     }
 
+    useEffect(getAllPosts,[])
 
     function setTitleHandler(e: ChangeEvent<HTMLInputElement>) {
         setTitle(e.target.value)
@@ -136,42 +140,24 @@ export default function HomePage() {
     return (
         <div>
             <div>
-                <div className={"dataResult"}>
-                    {postList.slice(0, 15).map((post) => {
-                        return (
-                            <>
-                                <div className={"dataItem"}>
-                                    <p className={"userInformation"}>
-                                        {post.userName} {post.title}
-                                        <button onClick={handleClickOpenDetails}>Details</button>
-                                    </p>
-                                </div>
-                                <div>
-                                    <Dialog open={openDetails} onClose={handleCloseDetails}>
-                                        <DialogTitle>{post.title}</DialogTitle>
-                                        <DialogContent style={{
-                                            width: 500,
-                                            height: 500
-                                        }}
-                                        >
-                                            <DialogContent>
-                                                {post.userName}
-                                            </DialogContent>
-
-                                            <DialogContent>
-                                                {post.description}
-                                            </DialogContent>
-
-                                        </DialogContent>
-                                        <DialogActions>
-                                            <Button onClick={handleCloseDetails}>Cancel</Button>
-                                        </DialogActions>
-                                    </Dialog>
-                                </div>
-                            </>
-                        )
-                    })}
-                </div>
+                <Grid container spacing={3}>
+                    <Grid item xs={1}></Grid>
+                        <Grid item xs={10}>
+                            <div className={"dataResult"}>
+                                {postList.slice(0, 15).map((post) => {
+                                    return (
+                                        <div className={"dataItem"}>
+                                            <p className={"userInformation"}>
+                                                {post.userName} {post.title}
+                                                <button onClick={handleClickOpenDetails}>Details</button>
+                                            </p>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </Grid>
+                    <Grid item xs={1}></Grid>
+                </Grid>
             </div>
             <div>
                 <Button style={{backgroundColor: "gold", color: "black"}} variant="outlined" onClick={handleClickOpen}>
@@ -207,5 +193,5 @@ export default function HomePage() {
                 </Dialog>
             </div>
         </div>
-    );
+);
 }
