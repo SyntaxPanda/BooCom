@@ -13,7 +13,6 @@ import {
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import {Post} from "../types/PostType";
-import userImage_placeholder from "../images/userImage_placeholder.png";
 
 export default function HomePage() {
 
@@ -34,8 +33,7 @@ export default function HomePage() {
             description: description,
             title: title,
             userName: userName
-        })
-            .then()
+        }).catch( error => console.error(error))
         setTitle("")
         setDescription("")
         setUserName("")
@@ -46,8 +44,7 @@ export default function HomePage() {
         axios.get("/api/posts")
             .then((response) => {
                 setPostList(response.data)
-
-            })
+            }).catch( error => console.error(error))
     }
 
     useEffect(getAllPosts,[])
