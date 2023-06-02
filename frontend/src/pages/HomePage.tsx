@@ -10,24 +10,25 @@ import {
     styled, TextareaAutosize,
 } from "@mui/material";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {Post} from "../types/PostType";
+import userImage_placeholder from "../images/userImage_placeholder.png";
 
 export default function HomePage() {
 
-    const[title, setTitle] =
+    const [title, setTitle] =
         useState<string>("")
 
-    const[description, setDescription] =
+    const [description, setDescription] =
         useState<string>("")
 
-    const[userName, setUserName] =
+    const [userName, setUserName] =
         useState<string>("")
-    const[postList,setPostList] = useState<Post[] >([])
+    const [postList, setPostList] = useState<Post[]>([])
 
     const navigate = useNavigate();
 
-    function addNewPost(){
+    function addNewPost() {
         axios.post("/api/post/new", {
             description: description,
             title: title,
@@ -46,18 +47,29 @@ export default function HomePage() {
             })
     }
 
-    function setTitleHandler(e: ChangeEvent<HTMLInputElement>){
+
+    function setTitleHandler(e: ChangeEvent<HTMLInputElement>) {
         setTitle(e.target.value)
     }
 
-    function setDescriptionHandler(e: ChangeEvent<HTMLTextAreaElement>){
+    function setDescriptionHandler(e: ChangeEvent<HTMLTextAreaElement>) {
         e.preventDefault()
         setDescription(e.target.value)
     }
 
-    function setUserNameHandler(e: ChangeEvent<HTMLInputElement>){
+    function setUserNameHandler(e: ChangeEvent<HTMLInputElement>) {
         setUserName(e.target.value)
     }
+
+    const [openDetails, setOpenDetails] = React.useState(false);
+
+    const handleClickOpenDetails = () => {
+        setOpen(true);
+    };
+
+    const handleCloseDetails = () => {
+        setOpen(false);
+    };
 
     const [open, setOpen] = React.useState(false);
 
@@ -92,7 +104,7 @@ export default function HomePage() {
     };
 
     const StyledTextarea = styled(TextareaAutosize)(
-        ({ theme }) => `
+        ({theme}) => `
     width: 460px;
     height: 300px;
     font-family: IBM Plex Sans, sans-serif;
@@ -123,37 +135,77 @@ export default function HomePage() {
     );
     return (
         <div>
-            <Button style={{backgroundColor: "gold", color: "black"}} variant="outlined" onClick={handleClickOpen}>
-                NEW POST
-            </Button>
-            <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>New Post</DialogTitle>
-                <DialogContent style={{
-                    width: 500,
-                    height: 500
-                }}
-                >
-                    <DialogContentText>
-                        <input placeholder={"title"} onChange={setTitleHandler}/>
-                    </DialogContentText>
-                    <DialogContentText>
-                        <input placeholder={"your name"} onChange={setUserNameHandler}/>
-                    </DialogContentText>
-                    <StyledTextarea
-                        maxRows={20}
-                        minRows={20}
-                        aria-label="maximum height"
-                        placeholder="Maximum 4 rows"
-                        // defaultValue="blub here plz"
-                        value={description}
-                        onChange={setDescriptionHandler}
-                    />
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={addNewPost}>Post</Button>
-                </DialogActions>
-            </Dialog>
+            <div>
+                <div className={"dataResult"}>
+                    {postList.slice(0, 15).map((post) => {
+                        return (
+                            <>
+                                <div className={"dataItem"}>
+                                    <p className={"userInformation"}>
+                                        {post.userName} {post.title}
+                                        <button onClick={handleClickOpenDetails}>Details</button>
+                                    </p>
+                                </div>
+                                <div>
+                                    <Dialog open={openDetails} onClose={handleCloseDetails}>
+                                        <DialogTitle>{post.title}</DialogTitle>
+                                        <DialogContent style={{
+                                            width: 500,
+                                            height: 500
+                                        }}
+                                        >
+                                            <DialogContent>
+                                                {post.userName}
+                                            </DialogContent>
+
+                                            <DialogContent>
+                                                {post.description}
+                                            </DialogContent>
+
+                                        </DialogContent>
+                                        <DialogActions>
+                                            <Button onClick={handleCloseDetails}>Cancel</Button>
+                                        </DialogActions>
+                                    </Dialog>
+                                </div>
+                            </>
+                        )
+                    })}
+                </div>
+            </div>
+            <div>
+                <Button style={{backgroundColor: "gold", color: "black"}} variant="outlined" onClick={handleClickOpen}>
+                    NEW POST
+                </Button>
+                <Dialog open={open} onClose={handleClose}>
+                    <DialogTitle>New Post</DialogTitle>
+                    <DialogContent style={{
+                        width: 500,
+                        height: 500
+                    }}
+                    >
+                        <DialogContentText>
+                            <input placeholder={"title"} onChange={setTitleHandler}/>
+                        </DialogContentText>
+                        <DialogContentText>
+                            <input placeholder={"your name"} onChange={setUserNameHandler}/>
+                        </DialogContentText>
+                        <StyledTextarea
+                            maxRows={20}
+                            minRows={20}
+                            aria-label="maximum height"
+                            placeholder="Maximum 4 rows"
+                            // defaultValue="blub here plz"
+                            value={description}
+                            onChange={setDescriptionHandler}
+                        />
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleClose}>Cancel</Button>
+                        <Button onClick={addNewPost}>Post</Button>
+                    </DialogActions>
+                </Dialog>
+            </div>
         </div>
     );
 }
