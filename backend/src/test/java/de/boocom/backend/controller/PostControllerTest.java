@@ -42,4 +42,13 @@ class PostControllerTest {
                                 }"""
                 )).andExpect(jsonPath("$.id").isNotEmpty());
     }
+    @Test
+    @DirtiesContext
+    @WithMockUser(username = "Test", password = "123")
+    void checkIfIsEmptyList() throws Exception {
+        mockMVC.perform(MockMvcRequestBuilders.get("/api/posts"))
+                .andExpect(status().isOk())
+                .andExpect(content().json(  "[]"));
+
+    }
 }
