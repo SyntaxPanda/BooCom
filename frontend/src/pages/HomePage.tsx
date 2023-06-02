@@ -6,11 +6,12 @@ import {
     Dialog,
     DialogActions,
     DialogContent, DialogContentText,
-    DialogTitle,
+    DialogTitle, getFabUtilityClass,
     styled, TextareaAutosize,
 } from "@mui/material";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import {Post} from "../types/PostType";
 
 export default function HomePage() {
 
@@ -22,6 +23,7 @@ export default function HomePage() {
 
     const[userName, setUserName] =
         useState<string>("")
+    const[postList,setPostList] = useState<Post[] >([])
 
     const navigate = useNavigate();
 
@@ -35,6 +37,13 @@ export default function HomePage() {
         setTitle("")
         setDescription("")
         setUserName("")
+    }
+
+    function getAllPosts() {
+        axios.get("/api/posts")
+            .then((response) => {
+                setPostList(response.data)
+            })
     }
 
     function setTitleHandler(e: ChangeEvent<HTMLInputElement>){
@@ -112,7 +121,6 @@ export default function HomePage() {
     }
   `,
     );
-
     return (
         <div>
             <Button style={{backgroundColor: "gold", color: "black"}} variant="outlined" onClick={handleClickOpen}>

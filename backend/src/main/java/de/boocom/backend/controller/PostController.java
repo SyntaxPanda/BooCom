@@ -16,5 +16,4 @@ public class PostController {
         return postService.addPost(addUserPost);
     }
 
-
 }
