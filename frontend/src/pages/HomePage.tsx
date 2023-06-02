@@ -65,17 +65,17 @@ export default function HomePage() {
         setUserName(e.target.value)
     }
 
-    const [openDetails, setOpenDetails] = React.useState(false);
+    const [openDetails, setOpenDetails] = useState(false);
 
     const handleClickOpenDetails = () => {
-        setOpen(true);
+        setOpenDetails(true);
     };
 
     const handleCloseDetails = () => {
-        setOpen(false);
+        setOpenDetails(false);
     };
 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -144,7 +144,7 @@ export default function HomePage() {
                     <Grid item xs={1}></Grid>
                         <Grid item xs={10}>
                             <div className={"dataResult"}>
-                                {postList.slice(0, 15).map((post) => {
+                                {postList.map((post) => {
                                     return (
                                         <div className={"dataItem"}>
                                             <p className={"userInformation"}>
