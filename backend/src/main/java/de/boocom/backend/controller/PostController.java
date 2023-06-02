@@ -1,6 +1,7 @@
 package de.boocom.backend.controller;
 
-import de.boocom.backend.service.MongoUserDetailsService;
+import de.boocom.backend.model.UserPost;
+import de.boocom.backend.service.MongoPostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -10,5 +11,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PostController {
 
-    private final MongoUserDetailsService postService;
+    private final MongoPostService postService;
+    @PostMapping("/post/new")
+    public UserPost addPost(@RequestBody UserPost addUserPost){
+        return postService.addPost(addUserPost);
+    }
+
+
 }
