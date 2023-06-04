@@ -1,4 +1,4 @@
-.registerButton{
+.registerButton {
     display: grid;
     justify-content: flex-end;
     align-items: center;
@@ -20,10 +20,11 @@
 .Box {
     background-color: #1a6d88;
 }
+
 .boocom-logo {
     color: gold;
     cursor: pointer;
-    font-size:30px;
+    font-size: 30px;
     border: 3px solid #000000;
     border-radius: 10px;
     align-items: center;
