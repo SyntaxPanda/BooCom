@@ -11,7 +11,7 @@ export default function Header() {
     }
 
     function onClickHandlerHomePage() {
-        navigate("/");
+        navigate("/login");
     }
 
     return (
@@ -24,9 +24,7 @@ export default function Header() {
             }}>
                 <Grid container spacing={2}>
                     <Grid item xs={9}>
-                        <Button onClick={onClickHandlerHomePage}>
-                            BooCom
-                        </Button>
+                     <a className={"boocom-logo"} ><span onClick={onClickHandlerHomePage}>BooCom</span></a>
                     </Grid>
                     <Grid item xs={3}>
                         <ButtonGroup variant={"contained"}>
