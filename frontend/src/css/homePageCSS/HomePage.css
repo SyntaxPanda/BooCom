@@ -53,11 +53,12 @@
     cursor: pointer;
     font-size: 14px;
 }
+.add-newPost-button {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 100px;
+    padding-top: 50px;
 
-@media (max-width: 768px) {
-    .post-item {
-        width: 100%;
-    }
 }
 
 
