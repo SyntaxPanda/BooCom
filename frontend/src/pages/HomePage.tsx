@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
-import "../css/headerCSS/HeaderPage.css"
-import "../css/footerCSS/FooterPage.css"
+import Modal from 'react-modal';
+import "../css/homePageCSS/HomePage.css"
 
 import {
     Button,
@@ -33,7 +33,7 @@ export default function HomePage() {
             description: description,
             title: title,
             userName: userName
-        }).catch( error => console.error(error))
+        }).catch(error => console.error(error))
         setTitle("")
         setDescription("")
         setUserName("")
@@ -44,10 +44,10 @@ export default function HomePage() {
         axios.get("/api/posts")
             .then((response) => {
                 setPostList(response.data)
-            }).catch( error => console.error(error))
+            }).catch(error => console.error(error))
     }
 
-    useEffect(getAllPosts,[])
+    useEffect(getAllPosts, [])
 
     function setTitleHandler(e: ChangeEvent<HTMLInputElement>) {
         setTitle(e.target.value)
@@ -73,6 +73,7 @@ export default function HomePage() {
     };
 
     const [open, setOpen] = useState(false);
+    const [isOpenModal, setIsOpenModal] = useState(true);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -80,6 +81,10 @@ export default function HomePage() {
 
     const handleClose = () => {
         setOpen(false);
+    };
+
+    const handleCloseModal = () => {
+        setIsOpenModal(false);
     };
 
     const blue = {
@@ -135,60 +140,73 @@ export default function HomePage() {
   `,
     );
     return (
-        <div>
-            <div>
-                <Grid container spacing={3}>
-                    <Grid item xs={1}></Grid>
+        <>
+            <>
+                <div>
+                    <Grid container spacing={3}>
+                        <Grid item xs={1}></Grid>
                         <Grid item xs={10}>
-                            <div className={"dataResult"}>
-                                {postList.map((post) => {
-                                    return (
-                                        <div className={"dataItem"}>
-                                            <p className={"userInformation"}>
-                                                {post.userName} {post.title}
-                                                <button onClick={handleClickOpenDetails}>Details</button>
-                                            </p>
-                                        </div>
-                                    )
-                                })}
+                            <div className={"post-container"}>
+                                <Modal isOpen={isOpenModal} onRequestClose={handleCloseModal}>
+                                    <div className={"post-item"}>
+                                        {postList.map((post) => {
+                                            return (
+                                                <div key={post.postId} className={"post-content"}>
+                                                    <h3 className="post-name">{post.userName}</h3>
+                                                    <p className="post-title">{post.title}</p>
+                                                    <div className="post-buttons">
+                                                        <button className="post-button">More...</button>
+                                                        <button className="delete-button">Delete</button>
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                    <Button onClick={handleCloseModal}>Close</Button>
+                                </Modal>
                             </div>
                         </Grid>
-                    <Grid item xs={1}></Grid>
-                </Grid>
-            </div>
-            <div>
-                <Button style={{backgroundColor: "gold", color: "black"}} variant="outlined" onClick={handleClickOpen}>
-                    NEW POST
-                </Button>
-                <Dialog open={open} onClose={handleClose}>
-                    <DialogTitle>New Post</DialogTitle>
-                    <DialogContent style={{
-                        width: 500,
-                        height: 500
-                    }}
-                    >
-                        <DialogContentText>
-                            <input placeholder={"title"} onChange={setTitleHandler}/>
-                        </DialogContentText>
-                        <DialogContentText>
-                            <input placeholder={"your name"} onChange={setUserNameHandler}/>
-                        </DialogContentText>
-                        <StyledTextarea
-                            maxRows={20}
-                            minRows={20}
-                            aria-label="maximum height"
-                            placeholder="Maximum 4 rows"
-                            // defaultValue="blub here plz"
-                            value={description}
-                            onChange={setDescriptionHandler}
-                        />
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={handleClose}>Cancel</Button>
-                        <Button onClick={addNewPost}>Post</Button>
-                    </DialogActions>
-                </Dialog>
-            </div>
-        </div>
-);
+                        <Grid item xs={1}></Grid>
+                    </Grid>
+                </div>
+            </>
+            <>
+                <div>
+                    <div className={"add-newPost-button"}>
+                        <Button style={{color: "black", backgroundColor: "gold"}}
+                                variant="outlined"
+                                onClick={handleClickOpen}> NEW POST
+                        </Button>
+                    </div>
+                    <Dialog open={open}>
+                        <DialogTitle style={{backgroundColor: "lightblue"}}>New Post</DialogTitle>
+                        <DialogContent style={{
+                            width: 500,
+                            height: 500,
+                            backgroundColor: "lightgoldenrodyellow",
+                        }}
+                        >
+                            <DialogContentText>
+                                <input placeholder={"title"} onChange={setTitleHandler}/>
+                            </DialogContentText>
+                            <DialogContentText>
+                                <input placeholder={"your name"} onChange={setUserNameHandler}/>
+                            </DialogContentText>
+                            <StyledTextarea
+                                maxRows={20}
+                                minRows={20}
+                                aria-label="maximum height"
+                                placeholder="Maximum 4 rows"
+                                value={description}
+                                onChange={setDescriptionHandler}/>
+                        </DialogContent>
+                        <DialogActions style={{backgroundColor: "lightblue"}}>
+                            <Button style={{ color: "black" }} onClick={handleClose}>Cancel</Button>
+                            <Button style={{ color: "black" }} onClick={addNewPost}>Post</Button>
+                        </DialogActions>
+                    </Dialog>
+                </div>
+            </>
+        </>
+    );
 }
