@@ -1,15 +1,4 @@
-.booComLogoRegisterPage {
-    display: grid;
-    justify-self: flex-start;
-    align-content: center
-}
-
-.inputfield {
-    margin-top: 5px;
-}
-
 .boocomimg {
-    border-style: solid;
     border-radius: 180px;
     width: 45px;
 }
@@ -38,7 +27,6 @@
     box-shadow: rgba(0, 0, 0, 0.35) 5px 5px 15px;
     overflow: hidden;
     overflow-y: scroll;
-    margin-top: -182px;
     border-radius: 10px;
     border-style: solid;
     border-color: black;
@@ -65,7 +53,7 @@
 
 .userInformation {
     display: grid;
-    justify-content: center;
+    justify-content: flex-start;
     align-content: center;
 }
 
@@ -81,27 +69,4 @@
 
 .dataItem:hover {
     background-color: lightgray;
-}
-
-.search {
-    background-color: white;
-    border: 1px #000000;
-    border-radius: 2px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    font-size: 18px;
-    padding: 15px;
-}
-
-.footer-style {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 8px;
-    padding: 10px;
-    background-color: #1a6d88;
-}
-
-.footer-style > div {
-    height: 80px;
-    width: auto;
 }
