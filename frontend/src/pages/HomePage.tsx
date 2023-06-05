@@ -130,11 +130,11 @@ export default function HomePage() {
                                 <input placeholder={"your name"} onChange={setUserNameHandler}/>
                             </DialogContentText>
                             <textarea
-                                   rows={4}
-                                   cols={6}
+                                rows={29}
+                                cols={20}
                                 placeholder="Maximum 4 rows"
                                 value={description}
-                                   onChange={setDescriptionHandler}></textarea>
+                                onChange={setDescriptionHandler}></textarea>
                         </DialogContent>
                         <DialogActions style={{backgroundColor: "lightblue"}}>
                             <Button style={{color: "black"}} onClick={handleClose}>Cancel</Button>
