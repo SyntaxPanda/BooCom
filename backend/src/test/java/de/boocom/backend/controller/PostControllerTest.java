@@ -40,7 +40,7 @@ class PostControllerTest {
                                 "description": "123456",
                                 "userName":"test"               
                                 }"""
-                )).andExpect(jsonPath("$.id").isNotEmpty());
+                )).andExpect(jsonPath("$.postId").isNotEmpty());
     }
     @Test
     @DirtiesContext
