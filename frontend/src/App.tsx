@@ -9,6 +9,7 @@ import Footer from "./pages/Footer";
 import useUser from "./hooks/useUser";
 import LoginPage from "./pages/LoginPage";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
+import PostDetailsPage from "./pages/PostDetailsPage";
 
 export default function App() {
 
@@ -23,6 +24,7 @@ export default function App() {
                 <Route element={<ProtectedRoutes user={user}/>}>
                     <Route path={"/"} element={<HomePage/>}/>
                     <Route path={`/user/:id`} element={<UserPage/>}/>
+                    <Route path={`/post/:id`} element={<PostDetailsPage/>}/>
                 </Route>
 
                 <Route path={"/login"} element={<LoginPage login={login}/>}/>

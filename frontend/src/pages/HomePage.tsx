@@ -11,7 +11,7 @@ import {
     styled, TextareaAutosize,
 } from "@mui/material";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {Post} from "../types/PostType";
 
 export default function HomePage() {
@@ -25,8 +25,6 @@ export default function HomePage() {
     const [userName, setUserName] =
         useState<string>("")
     const [postList, setPostList] = useState<Post[]>([])
-
-    const navigate = useNavigate();
 
     function addNewPost() {
         axios.post("/api/post/new", {
@@ -61,16 +59,6 @@ export default function HomePage() {
     function setUserNameHandler(e: ChangeEvent<HTMLInputElement>) {
         setUserName(e.target.value)
     }
-
-    const [openDetails, setOpenDetails] = useState(false);
-
-    const handleClickOpenDetails = () => {
-        setOpenDetails(true);
-    };
-
-    const handleCloseDetails = () => {
-        setOpenDetails(false);
-    };
 
     const [open, setOpen] = useState(false);
     const [isOpenModal, setIsOpenModal] = useState(false);
@@ -156,14 +144,14 @@ export default function HomePage() {
                                     <div className={"post-item"}>
                                         {postList.map((post) => {
                                             return (
-                                                <div key={post.postId} className={"post-content"}>
-                                                    <h3 className="post-name">{post.userName}</h3>
-                                                    <p className="post-title">{post.title}</p>
-                                                    <div className="post-buttons">
-                                                        <button className="post-button">More...</button>
-                                                        <button className="delete-button">Delete</button>
-                                                    </div>
+                                                <div className={"post-content"}>
+                                                    <Link to={"/post/" + post.postId} onClick={() => {
+                                                    }}>
+                                                        <h3 className="post-name">{post.userName}</h3>
+                                                        <p className="post-title">{post.title}</p>
+                                                    </Link>
                                                 </div>
+
                                             );
                                         })}
                                     </div>
