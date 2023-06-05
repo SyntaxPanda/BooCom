@@ -47,6 +47,7 @@ export default function HomePage() {
         setDescription("")
         setUserName("")
         setOpen(false)
+        getAllPosts()
     }
 
     function getAllPosts() {
@@ -63,7 +64,6 @@ export default function HomePage() {
     }
 
     function setDescriptionHandler(e: ChangeEvent<HTMLTextAreaElement>) {
-        e.preventDefault()
         setDescription(e.target.value)
     }
 
@@ -203,13 +203,12 @@ export default function HomePage() {
                             <DialogContentText>
                                 <input placeholder={"your name"} onChange={setUserNameHandler}/>
                             </DialogContentText>
-                            <StyledTextarea
-                                maxRows={20}
-                                minRows={20}
-                                aria-label="maximum height"
+                            <textarea
+                                   rows={4}
+                                   cols={6}
                                 placeholder="Maximum 4 rows"
                                 value={description}
-                                onChange={setDescriptionHandler}/>
+                                   onChange={setDescriptionHandler}></textarea>
                         </DialogContent>
                         <DialogActions style={{backgroundColor: "lightblue"}}>
                             <Button style={{color: "black"}} onClick={handleClose}>Cancel</Button>
