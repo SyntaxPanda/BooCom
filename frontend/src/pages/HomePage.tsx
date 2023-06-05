@@ -152,6 +152,7 @@ export default function HomePage() {
                         <Grid item xs={10}>
                             <div className={"post-container"}>
                                 <Modal isOpen={isOpenModal} onRequestClose={handleCloseModal}>
+                                    <p>All Posts</p>
                                     <div className={"post-item"}>
                                         {postList.map((post) => {
                                             return (
