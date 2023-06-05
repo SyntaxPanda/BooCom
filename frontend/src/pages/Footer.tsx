@@ -48,7 +48,11 @@ export default function Footer() {
         setSelectedUser(user);
     }
 
-    const handleClerarSelection = () => {
+    function clearFilter() {
+        setFilter("")
+    }
+
+    const handleClearSelection = () => {
         setSelectedUser(null);
         setFilteredData([]);
     }
@@ -70,7 +74,7 @@ export default function Footer() {
                     </Grid>
                     <Grid item xs={8}>
                         <label className={"search-color"}>Search User: </label>
-                        <input className={"inputfield"} placeholder={"Search user here!"} type="text"
+                        <input className={"inputfield"} value={filter} placeholder={"Search user here!"} type="text"
                                onChange={handleFilter}/>
                     </Grid>
                     <Grid item xs={2}>
@@ -80,7 +84,8 @@ export default function Footer() {
                                     return (
                                         <Link to={"/user/" + user.id} onClick={() => {
                                             handleUserSelected(user);
-                                            handleClerarSelection();
+                                            handleClearSelection();
+                                            clearFilter();
                                         }}>
                                             <div className={"dataItem"}>
                                                 <div><img className={"imgSize"} src={userImage_placeholder} alt="bild"/>
