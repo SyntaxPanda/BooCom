@@ -1,0 +1,14 @@
+.loingText {
+    color: gold;
+    align-self: flex-end
+}
+
+.inputFieldBox {
+    margin: 3px;
+}
+
+.loginPage {
+    display: grid;
+    height: 100%;
+    justify-items: center;
+}

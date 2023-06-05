@@ -69,7 +69,7 @@ export default function Footer() {
                 boxShadow: 10
             }}>
                 <Grid container spacing={3}>
-                    <Grid item xs={2}>
+                    <Grid item xs={1}>
                         <img className={"boocomimg"} src={BooComLogo} alt="bild"/>
                     </Grid>
                     <Grid item xs={8}>
@@ -77,7 +77,7 @@ export default function Footer() {
                         <input className={"inputfield"} value={filter} placeholder={"Search user here!"} type="text"
                                onChange={handleFilter}/>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={3}>
                         {selectedUser === null && filteredData.length !== 0 && (
                             <div className={"dataResult"}>
                                 {filteredData.slice(0, 15).map((user) => {
