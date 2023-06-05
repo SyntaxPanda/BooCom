@@ -1,7 +1,6 @@
 import React, {ChangeEvent, FormEvent, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 
-
 type Props = {
     login: (username: string, password: string) => Promise<void>
 }

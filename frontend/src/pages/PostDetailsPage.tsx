@@ -17,17 +17,19 @@ export default function PostDetailsPage() {
             .then(response => setPost(response.data)
             ).catch(error => console.error(error))
     }
+
     useEffect(getPostPageById,[])
+
     return (
-        <div>
+        <div className={"DetailsBox"}>
             <div className={"title"}>
-                <h1>Title: {post.title}</h1>
+                Title: {post.title}
             </div>
             <div className={"userName"}>
-                <h1>User: {post.userName}</h1>
+                User: {post.userName}
             </div>
             <div className={"description"}>
-                <p>Description:  {post.description}</p>
+                <div className={"descriptionBox"}> Description: {post.description}</div>
             </div>
         </div>
     );
