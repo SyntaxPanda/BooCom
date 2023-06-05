@@ -12,7 +12,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("Posts")
 public class UserPost {
 
-
     private String title;
     private String description;
     private String userName;
