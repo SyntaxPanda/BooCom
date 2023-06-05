@@ -26,6 +26,17 @@ export default function HomePage() {
         useState<string>("")
     const [postList, setPostList] = useState<Post[]>([])
 
+    const [selectedPost, setSelectedPost] =
+        useState<Post | null>(null)
+
+    const handlePostSelected = (post: Post) => {
+        setSelectedPost(post);
+    }
+
+    const handleClearSelection = () => {
+        setSelectedPost(null);
+    }
+
     function addNewPost() {
         axios.post("/api/post/new", {
             description: description,
@@ -146,6 +157,8 @@ export default function HomePage() {
                                             return (
                                                 <div className={"post-content"}>
                                                     <Link to={"/post/" + post.postId} onClick={() => {
+                                                        handlePostSelected(post)
+                                                        handleClearSelection()
                                                     }}>
                                                         <h3 className="post-name">{post.userName}</h3>
                                                         <p className="post-title">{post.title}</p>

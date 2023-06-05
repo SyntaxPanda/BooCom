@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -19,5 +20,10 @@ public class MongoPostService {
 
     public List<UserPost> getAllPosts() {
         return postRepo.findAll();
+    }
+
+    public UserPost getPostById(String postId) {
+        Optional<UserPost> userPost = postRepo.findById(postId);
+        return userPost.get();
     }
 }

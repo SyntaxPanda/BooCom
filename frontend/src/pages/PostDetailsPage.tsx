@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import axios from "axios";
 import {Post} from "../types/PostType";
+import {User} from "../types/UserType";
 
 export default function PostDetailsPage() {
 
@@ -12,7 +13,7 @@ export default function PostDetailsPage() {
     const id: string | undefined = params.id
 
     function getPostPageById() {
-        axios.get("/api/post/" + id)
+        axios.get("/api/post/" + id )
             .then(response => setPost(response.data)
             ).catch(error => console.error(error))
     }
