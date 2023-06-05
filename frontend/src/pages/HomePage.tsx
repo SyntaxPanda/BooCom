@@ -73,7 +73,7 @@ export default function HomePage() {
     };
 
     const [open, setOpen] = useState(false);
-    const [isOpenModal, setIsOpenModal] = useState(true);
+    const [isOpenModal, setIsOpenModal] = useState(false);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -85,6 +85,10 @@ export default function HomePage() {
 
     const handleCloseModal = () => {
         setIsOpenModal(false);
+    };
+
+    const handleOpenModal = () => {
+        setIsOpenModal(true);
     };
 
     const blue = {
@@ -144,7 +148,8 @@ export default function HomePage() {
             <>
                 <div>
                     <Grid container spacing={3}>
-                        <Grid item xs={1}></Grid>
+                        <Grid item xs={1}>
+                        </Grid>
                         <Grid item xs={10}>
                             <div className={"post-container"}>
                                 <Modal isOpen={isOpenModal} onRequestClose={handleCloseModal}>
@@ -175,6 +180,10 @@ export default function HomePage() {
                     <div className={"add-newPost-button"}>
                         <Button style={{color: "black", backgroundColor: "gold"}}
                                 variant="outlined"
+                                onClick={handleOpenModal}> ALL POSTS
+                        </Button>
+                        <Button style={{color: "black", backgroundColor: "gold"}}
+                                variant="outlined"
                                 onClick={handleClickOpen}> NEW POST
                         </Button>
                     </div>
@@ -201,8 +210,8 @@ export default function HomePage() {
                                 onChange={setDescriptionHandler}/>
                         </DialogContent>
                         <DialogActions style={{backgroundColor: "lightblue"}}>
-                            <Button style={{ color: "black" }} onClick={handleClose}>Cancel</Button>
-                            <Button style={{ color: "black" }} onClick={addNewPost}>Post</Button>
+                            <Button style={{color: "black"}} onClick={handleClose}>Cancel</Button>
+                            <Button style={{color: "black"}} onClick={addNewPost}>Post</Button>
                         </DialogActions>
                     </Dialog>
                 </div>

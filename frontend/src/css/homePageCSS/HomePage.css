@@ -55,8 +55,8 @@
 }
 .add-newPost-button {
     display: flex;
-    justify-content: flex-end;
-    padding-right: 100px;
+    justify-content: center;
+    margin: 1px;
     padding-top: 50px;
 
 }
