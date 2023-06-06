@@ -13,6 +13,13 @@
     width: 300px;
 }
 
+body {
+    background-image: url("../../images/BooComLogo.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 70%;
+}
+
 .post-content {
 
     margin-bottom: 15px;
@@ -44,19 +51,9 @@
     font-size: 14px;
 }
 
-.delete-button{
-    background-color: #bb1010;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 14px;
-}
 .add-newPost-button {
     display: flex;
     justify-content: center;
     margin: 1px;
     padding-top: 50px;
-
 }

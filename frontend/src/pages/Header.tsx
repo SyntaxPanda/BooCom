@@ -6,6 +6,10 @@ import "../css/headerCSS/HeaderPage.css"
 export default function Header() {
     const navigate = useNavigate();
 
+    function onClickLoginHandler() {
+        navigate("/login")
+    }
+
     function onClickHandler() {
         navigate("/register");
     }
@@ -30,7 +34,7 @@ export default function Header() {
                     <Grid item xs={3}>
                         <ButtonGroup variant={"contained"}>
                             <Button style={{width: "100%", backgroundColor: "gold", color: "black"}} variant="contained"
-                                    onClick={onClickHandler}>Login</Button>
+                                    onClick={onClickLoginHandler}>Login</Button>
                             <Button style={{width: "100%", backgroundColor: "gold", color: "black"}} variant="contained"
                                     onClick={onClickHandler}>Register</Button>
                         </ButtonGroup>

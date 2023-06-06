@@ -21,7 +21,7 @@ export default function PostDetailsPage() {
     useEffect(getPostPageById,[])
 
     return (
-        <div className={"DetailsBox"}>
+        <div>
             <div className={"title"}>
                 Title: {post.title}
             </div>

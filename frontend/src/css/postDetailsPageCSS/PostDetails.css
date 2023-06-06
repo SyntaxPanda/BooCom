@@ -4,18 +4,9 @@
     align-content: flex-start;
     margin-top: 2%;
     margin-left: 2%;
-    color: gold;
+    color: #7fffd4;
     font-size: 50px;
     font-family: "American Typewriter", serif;
-}
-.description {
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    color: gold;
-    font-size: 20px;
-    font-family: "American Typewriter", serif;
-    height: 150%;
 }
 
 .userName {
@@ -23,11 +14,23 @@
     justify-content: flex-start;
     margin-top: 5%;
     margin-left: 2%;
-    color: gold;
+    color: #7fffd4;
     font-size: 30px;
     font-family: "American Typewriter", serif;
 }
 
+.description {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    color: #7fffd4;
+    font-size: 20px;
+    font-family: "American Typewriter", serif;
+    height: 150%;
+}
+
+
 .descriptionBox {
-    width: 70%;
+    max-width: 900px;
+    word-wrap: break-word;
 }

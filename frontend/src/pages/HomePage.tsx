@@ -123,15 +123,20 @@ export default function HomePage() {
                             backgroundColor: "lightgoldenrodyellow",
                         }}
                         >
-                            <DialogContentText>
-                                <input placeholder={"title"} onChange={setTitleHandler}/>
+                            <DialogContentText style={{
+                                marginTop: 3,
+                                marginBottom: 1
+                            }}>
+                                <input placeholder={"Title"} onChange={setTitleHandler}/>
                             </DialogContentText>
-                            <DialogContentText>
-                                <input placeholder={"your name"} onChange={setUserNameHandler}/>
+                            <DialogContentText style={{
+                                marginBottom: 4
+                            }}>
+                                <input placeholder={"Your name"} onChange={setUserNameHandler}/>
                             </DialogContentText>
                             <textarea
-                                rows={29}
-                                cols={20}
+                                rows={28}
+                                cols={60}
                                 placeholder="Maximum 4 rows"
                                 value={description}
                                 onChange={setDescriptionHandler}></textarea>
