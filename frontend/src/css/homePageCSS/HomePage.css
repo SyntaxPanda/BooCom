@@ -1,0 +1,59 @@
+.post-item {
+    background-color: gold;
+    border: 2px solid #000;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.post-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    width: 300px;
+}
+
+body {
+    background-image: url("../../images/BooComLogo.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 70%;
+}
+
+.post-content {
+
+    margin-bottom: 15px;
+    border: 2px solid #000;
+    font-family: "American Typewriter", serif;
+
+}
+
+.post-title {
+    font-size: 20px;
+    margin-top: 0;
+}
+
+.post-name {
+    font-size: 16px;
+}
+.post-buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.add-newPost-button {
+    display: flex;
+    justify-content: center;
+    margin: 1px;
+    padding-top: 50px;
+}

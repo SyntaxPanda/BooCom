@@ -1,37 +1,82 @@
 .containerUserPage {
-    display: flex;
-    padding-right: 500px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto 68%;
     background-color: #61dafb;
-    border-top: 1px solid #000;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-    align-content: center;
+    /*border: 2px solid #000000;*/
+    align-content: flex-start;
     width: auto;
     height: 100%;
 }
+
 .containerUserImage {
-    display:block;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
+    display: grid;
+    justify-self: center;
+    align-content: center;
     border-radius: 180px;
-    margin:50px;
+    margin: 25px;
     border: 1px solid #020202;
-    width: 160px;
-    height: 160px;
+    width: 140px;
+    height: 140px;
     background: #fff url(../../images/userImage_placeholder.png) center center/cover no-repeat;
 }
 
 .containerUserName {
-    display:block;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
-    margin:80px;
+    display: grid;
+    align-content: center;
+    justify-self: flex-start;
     font-size: 100px;
-    font-family: "American Typewriter";
+    font-family: "American Typewriter", serif;
+}
+
+.placeholderDiv {
+    display: grid;
+    justify-self: center;
+    align-content: center;
+    border: 1px solid #000000;
+    width: 100%;
+}
+
+.gitLinks {
+    display: grid;
+    justify-self: center;
+    align-content: center;
+    border: 1px solid #000000;
+    width: 100%;
+}
+
+.gitLink1 {
+    display: grid;
+    margin: 7px;
+    border-style: solid;
+    border-radius: 90px;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.gitLink2 {
+    display: grid;
+    margin: 7px;
+    border-style: solid;
+    border-radius: 90px;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.gitLink3 {
+    display: grid;
+    margin: 7px;
+    border-style: solid;
+    border-radius: 90px;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.gitLink4 {
+    display: grid;
+    margin: 7px;
+    border-style: solid;
+    border-radius: 90px;
+    font-size: 20px;
+    padding: 20px;
 }

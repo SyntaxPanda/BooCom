@@ -1,7 +1,7 @@
 import React, {ChangeEvent, FormEvent, useState} from 'react';
 import axios from "axios";
-import {User} from "../types/UserType";
 import {useNavigate} from "react-router-dom";
+import "../css/registerCSS/RegisterPage.css"
 
 export default function RegisterPage() {
 
@@ -13,9 +13,6 @@ export default function RegisterPage() {
         useState<string>("")
     const [course, setCourse] = useState("")
 
-    const [userList, setUserList] =
-        useState<User[]>([])
-
     function addUser(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
         console.log(course)
@@ -25,9 +22,8 @@ export default function RegisterPage() {
             course: course
         })
             .then(response => {
-                setUserList(response.data)
                 navigate('/user/' + response.data.id)
-            })
+            }).catch(error => console.error(error))
         setName("")
         setPassword("")
     }
@@ -45,26 +41,28 @@ export default function RegisterPage() {
     }
 
     return (
-        <div>
-            <form onSubmit={addUser}>
-                <div>
-                    <input placeholder="Name" type="text" value={name} onChange={OnChangeHandlerUserName}/>
-                </div>
-                <div>
-                    <input placeholder={"Password"} type="password" value={password}
-                           onChange={OnChangeHandlerUserPassword}/>
-                </div>
-                <div>
-                    <select name={"course"} onChange={OnChangeHandlerUserCourse}>
-                        <option>Please select course:</option>
-                        <option value={"BOJAVA231"}>Bo-java-23-1</option>
-                        <option value={"COACH"}>Coach</option>
-                    </select>
-                </div>
-                <div>
-                    <button>Send</button>
-                </div>
-            </form>
+        <div className={"registerPage"}>
+            <div className={"registerForm"}>
+                <form onSubmit={addUser}>
+                    <div className={"inputRegisterPageName"}>
+                        <input placeholder="Name" type="text" value={name} onChange={OnChangeHandlerUserName}/>
+                    </div>
+                    <div className={"inputRegisterPagePassword"}>
+                        <input placeholder={"Password"} type="password" value={password}
+                               onChange={OnChangeHandlerUserPassword}/>
+                    </div>
+                    <div className={"selectCourseRegisterPage"}>
+                        <select name={"course"} onChange={OnChangeHandlerUserCourse}>
+                            <option>Please select course:</option>
+                            <option value={"BOJAVA231"}>Bo-java-23-1</option>
+                            <option value={"COACH"}>Coach</option>
+                        </select>
+                    </div>
+                    <div className={"buttonSendRegisterPage"}>
+                        <button>Send</button>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

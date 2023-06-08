@@ -1,0 +1,72 @@
+.boocomimg {
+    border-radius: 180px;
+    width: 45px;
+}
+
+.inputToCenter {
+    display: grid;
+    justify-self: center;
+    align-content: center;
+}
+
+.imgSize {
+    display: grid;
+    align-items: center;
+    border-style: solid;
+    border-radius: 180px;
+    width: 40px;
+    margin: 2px;
+}
+
+.search-color {
+    color: gold;
+}
+
+.dataResult {
+    background-color: gold;
+    box-shadow: rgba(0, 0, 0, 0.35) 5px 5px 15px;
+    overflow: hidden;
+    overflow-y: scroll;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    width: 250px;
+}
+
+.dataItem {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    color: black;
+}
+
+.dataResult {
+    display: grid;
+    justify-self: flex-start;
+}
+
+.dataResultBox {
+    display: grid;
+    justify-self: flex-start;
+    align-content: flex-start;
+}
+
+.userInformation {
+    display: grid;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.dataItem {
+    display: grid;
+    grid-column-end: auto;
+    margin: 3px;
+    border-style: solid;
+    border-color: #000000;
+    border-radius: 15px;
+    background-color: #1a6d88;
+}
+
+.dataItem:hover {
+    background-color: lightgray;
+}
